@@ -1,0 +1,33 @@
+@import "@openng/icons/openng-icons.css";
+
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font override for the whole app */
+:root {
+  --theme-primary: #3b82f6;
+  --theme-font: 'Plus Jakarta Sans', sans-serif;
+  --theme-bg-image: none;
+}
+
+body, .p-component {
+  font-family: var(--theme-font) !important;
+}
+
+body {
+  background-image: var(--theme-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.p-toast {
+  opacity: 0.98;
+}
