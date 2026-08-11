@@ -19,7 +19,7 @@
 MT-URBAC is a complete, production-ready boilerplate designed to help you scaffold secure, multi-level access control systems in minutes. It provides a flawless developer experience with a seeded PostgreSQL database, a powerful NestJS backend, and a dynamic Angular UI built with Optimus UI and Tailwind CSS.
 
 ## ✨ Core Features
-
+* 🗺️ **Routing:** Support path-based routing for localhost and IPV4 and subdomain-based routing for domain.
 * 🔐 **Hierarchical Group-Based RBAC:** A clean `User -> Group -> Role -> Privilege` architecture.
 * 🏢 **Role Escalation:** Strict level-based security. A Level 10 User cannot assign a Level 50 Admin role.
 * 🧩 **Dynamic Frontend:** Custom Angular `*hasPermission="'action'"` directives to automatically render or hide UI elements based on the user's active group context.
@@ -27,6 +27,11 @@ MT-URBAC is a complete, production-ready boilerplate designed to help you scaffo
 * ⚡ **Clean Structure:** Fully decoupled NestJS backend and Angular frontend for easy deployment.
 
 ---
+
+## 🗺️ Routing & Multi-Tenancy
+MT-URBAC seamlessly adapts to your environment with dual routing support:
+* **Path-Based Routing (Local Default):** Works instantly out-of-the-box—**no manual `hosts` file modifications required**. Perfect for local testing using paths like `http://localhost:4200/admin/...` or `http://localhost:4200/tenant-a/login`.
+* **Subdomain-Based Routing (Production):** Automatically resolves tenant contexts via subdomains once deployed with a live domain.
 
 ## 🚀 Quick Start
 
@@ -61,6 +66,9 @@ npm install
 npm start
 ```
 The Angular UI is now running at http://localhost:4200.
+
+The default admin route will be at http://localhost:4200/admin/...
+for any new tenant it will replace "admin" i.e. http://localhost:4200/tenant-a/login
 
 ### 🔑 Default Credentials
 The npm run seed command provisions a Super Admin account out of the box so you can immediately test the dashboard and role-management features.
